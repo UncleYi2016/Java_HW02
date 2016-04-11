@@ -22,6 +22,9 @@ public class Model {
 		bubbles.add(b);
 	}
 	public void addListener(IModelListener listener){
+		listeners.add(listener);
+	}
+	public void moveAll(float dx, float dy){
 		
 	}
 }
