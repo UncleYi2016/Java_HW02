@@ -39,7 +39,9 @@ public class Bubble extends Shape{
 	 }
 
 	public boolean isIn(float x, float y) {
-		return false;
+		float dx = getX() - x;
+		float dy = getY() - y;
+		return dx*dx + dy*dy <= radius * radius;
 	}
 	public void draw(Canvas c) {
 		c.drawCircle(getX(), getY(), radius, p);
