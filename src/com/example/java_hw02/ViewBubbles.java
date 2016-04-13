@@ -35,7 +35,7 @@ public class ViewBubbles extends View {
 		this.setOnTouchListener(new OnTouchListener(){
 			public boolean onTouch(View v, MotionEvent e) {
 				if(e.getAction() == MotionEvent.ACTION_UP){
-					
+					clickBubbles(e.getX(), e.getY());
 				}
 			}
 		});
@@ -46,6 +46,10 @@ public class ViewBubbles extends View {
 	}
 	public void stopTicker(){
 		h.removeMessages(0);
+	}
+	
+	public void notifyModelListener(){
+		
 	}
 	
 }
