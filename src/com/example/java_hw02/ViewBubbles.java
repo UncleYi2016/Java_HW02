@@ -1,6 +1,7 @@
 package com.example.java_hw02;
 
 import android.content.Context;
+import android.graphics.Canvas;
 import android.os.Handler;
 import android.os.Handler.Callback;
 import android.os.Message;
@@ -24,9 +25,9 @@ public class ViewBubbles extends View {
 		this.controller = c;
 		h = new Handler(new Callback(){
 			public boolean handleMessage(Message msg) {
-				float height = getHeight();
-				float width = getWidth();
-				c.moveUp(width, height);
+				int height = (int) getHeight();
+				int width = (int) getWidth();
+				controller.moveUp(width, height);
 				Message m = h.obtainMessage(0);
 				h.sendMessageDelayed(m, delay);
 				return false;
@@ -35,10 +36,12 @@ public class ViewBubbles extends View {
 		this.setOnTouchListener(new OnTouchListener(){
 			public boolean onTouch(View v, MotionEvent e) {
 				if(e.getAction() == MotionEvent.ACTION_UP){
-					clickBubbles(e.getX(), e.getY());
+					controller.clickBubbles(e.getX(), e.getY());
 				}
+				return false;
 			}
 		});
+		notifyModelListener();
 	}
 	public void startTicker(){
 		Message m = h.obtainMessage(0);
@@ -49,7 +52,11 @@ public class ViewBubbles extends View {
 	}
 	
 	public void notifyModelListener(){
-		
+		onDraw();
+	}
+	
+	public void onDraw(Canvas canvas){
+		this.model.drawAll(canvas);
 	}
 	
 }
