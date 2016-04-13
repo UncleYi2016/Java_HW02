@@ -10,12 +10,15 @@ import android.view.MotionEvent;
 import android.view.View;
 
 public class ViewBubbles extends View {
+	
+
+
 	private Model model;
 	private ControllerBubbles controller;
 	private Handler h;
 	private long delay;
 	
-	ViewBubbles(Context ct, AttributeSet at) {
+	public ViewBubbles(Context ct, AttributeSet at) {
 		super(ct, at);
 		delay = 500l;
 	}
@@ -52,11 +55,11 @@ public class ViewBubbles extends View {
 	}
 	
 	public void notifyModelListener(){
-		onDraw();
+		invalidate();
 	}
 	
-	public void onDraw(Canvas canvas){
-		this.model.drawAll(canvas);
+	public void onDraw(Canvas c){
+		this.model.drawAll(c);
 	}
 	
 }
