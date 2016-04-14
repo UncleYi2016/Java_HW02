@@ -5,7 +5,7 @@ import java.util.Random;
 
 import android.graphics.Canvas;
 
-public class Model {
+public class Model{
 	private int score;
 	private ArrayList<IShape> bubbles;
 	private ArrayList<IModelListener> listeners;
@@ -16,6 +16,9 @@ public class Model {
 		listeners = new ArrayList<IModelListener>();
 	}
 	
+	public int getScore(){
+		return this.score;
+	}
 	public void addBubble(int w, int h){
 		Random r = new Random();
 		float x = r.nextInt(w);
@@ -47,7 +50,7 @@ public class Model {
 	}
 	public void deleteBubblesAtPoint(float x, float y){
 		for(int i = 0; i <  bubbles.size();){
-			if(bubbles.get(i).getX() == x && bubbles.get(i).getY() == y){
+			if(bubbles.get(i).isIn(x, y)){
 				bubbles.remove(i);
 				score++;
 				notifyAllModelListeners();

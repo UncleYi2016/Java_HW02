@@ -9,9 +9,12 @@ public class MainActivity extends Activity {
 		setContentView(R.layout.activity_main);
 		
 		Model m = new Model();
-		ControllerBubbles c = new ControllerBubbles(m);
+		ControllerBubbles cb = new ControllerBubbles(m);
+		ControllerScore cs = new ControllerScore(m);
 		ViewBubbles vb = (ViewBubbles) findViewById(R.id.ViewBubbles_Canvas);
-		vb.setMVC(m, c);
+		vb.setMVC(m, cb);
+		ViewScore vs = (ViewScore) findViewById(R.id.ViewScores);
+		vs.setMVC(m, cs);
 	}
 	
 	// Call the startTicker()

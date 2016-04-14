@@ -2,18 +2,15 @@ package com.example.java_hw02;
 
 import android.content.Context;
 import android.graphics.Canvas;
-import android.graphics.Color;
-import android.graphics.Paint;
 import android.os.Handler;
 import android.os.Handler.Callback;
 import android.os.Message;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
+import android.widget.Toast;
 
 public class ViewBubbles extends View implements IModelListener{
-	
-
 
 	private Model model;
 	private ControllerBubbles controller;
@@ -41,12 +38,15 @@ public class ViewBubbles extends View implements IModelListener{
 		});
 		this.setOnTouchListener(new OnTouchListener(){
 			public boolean onTouch(View v, MotionEvent e) {
+				controller.clickBubbles(e.getX(), e.getY());
 				if(e.getAction() == MotionEvent.ACTION_UP){
+					Toast.makeText(v.getContext(), "x: " + e.getX() + " y: " + e.getY(), Toast.LENGTH_SHORT).show();
 					controller.clickBubbles(e.getX(), e.getY());
 				}
-				return false;
+			return false;
 			}
 		});
+		
 		notifyModelListener();
 	}
 	public void startTicker(){
@@ -62,12 +62,7 @@ public class ViewBubbles extends View implements IModelListener{
 	}
 	
 	public void onDraw(Canvas c){
-		model.drawAll(c);
-//		Paint p = new Paint();
-//		int colorNum = Color.rgb(0, 0, 0);
-//		p.setColor(colorNum);
-//		p.setStyle(Paint.Style.FILL);
-//		c.drawCircle(1, 1, 10, p);
+		//this.model.drawAll(c);
 	}
 	
 }
