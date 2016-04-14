@@ -14,9 +14,11 @@ public class Bubble extends Shape{
 		super(x, y);
 		int colorNum = 0;
 		this.radius = 10.0f;
+		this.p = new Paint();
 		Random r = new Random();
-		colorNum = Color.rgb(r.nextInt(255), r.nextInt(255), r.nextInt(255));
+		colorNum = Color.rgb(r.nextInt(256), r.nextInt(256), r.nextInt(256));
 		p.setColor(colorNum);
+		p.setStyle(Paint.Style.FILL);
 	}
 
 	 // Find the point (wx, wy) inside the window which is closest to the

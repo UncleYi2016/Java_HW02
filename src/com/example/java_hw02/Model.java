@@ -35,26 +35,30 @@ public class Model {
 		notifyAllModelListeners();
 	}
 	public void clearInvisibles(int w, int h){
-		for(IShape b : bubbles){
-			if(!b.isVisible(w, h)){
-				bubbles.remove(b);
+		for(int i = 0; i <  bubbles.size();){
+			if(!bubbles.get(i).isVisible(w, h)){
+				bubbles.remove(i);
 				score--;
 				notifyAllModelListeners();
+			}else{
+				i++;
 			}
 		}
 	}
 	public void deleteBubblesAtPoint(float x, float y){
-		for(IShape b : bubbles){
-			if(b.getX() == x && b.getY() == y){
-				bubbles.remove(b);
+		for(int i = 0; i <  bubbles.size();){
+			if(bubbles.get(i).getX() == x && bubbles.get(i).getY() == y){
+				bubbles.remove(i);
 				score++;
 				notifyAllModelListeners();
+			}else{
+				i++;
 			}
 		}
 	}
 	public void drawAll(Canvas c){
-		for(IShape b : bubbles){
-			b.draw(c);
+		for(int i = 0; i < bubbles.size(); i++){
+			bubbles.get(i).draw(c);
 		}
 	}
 	public void clearAll(){

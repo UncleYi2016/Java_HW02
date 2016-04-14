@@ -2,6 +2,8 @@ package com.example.java_hw02;
 
 import android.content.Context;
 import android.graphics.Canvas;
+import android.graphics.Color;
+import android.graphics.Paint;
 import android.os.Handler;
 import android.os.Handler.Callback;
 import android.os.Message;
@@ -9,7 +11,7 @@ import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
 
-public class ViewBubbles extends View {
+public class ViewBubbles extends View implements IModelListener{
 	
 
 
@@ -26,6 +28,7 @@ public class ViewBubbles extends View {
 	public void setMVC(Model m, ControllerBubbles c){
 		this.model = m;
 		this.controller = c;
+		this.model.addListener(this);
 		h = new Handler(new Callback(){
 			public boolean handleMessage(Message msg) {
 				int height = (int) getHeight();
@@ -55,11 +58,16 @@ public class ViewBubbles extends View {
 	}
 	
 	public void notifyModelListener(){
-		invalidate();
+		this.invalidate();
 	}
 	
 	public void onDraw(Canvas c){
-		this.model.drawAll(c);
+		model.drawAll(c);
+//		Paint p = new Paint();
+//		int colorNum = Color.rgb(0, 0, 0);
+//		p.setColor(colorNum);
+//		p.setStyle(Paint.Style.FILL);
+//		c.drawCircle(1, 1, 10, p);
 	}
 	
 }
