@@ -62,7 +62,7 @@ public class ViewBubbles extends View implements IModelListener{
 	}
 	
 	public void onDraw(Canvas c){
-		//this.model.drawAll(c);
+		this.model.drawAll(c);
 	}
 	
 }

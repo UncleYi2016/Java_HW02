@@ -11,10 +11,13 @@ public class MainActivity extends Activity {
 		Model m = new Model();
 		ControllerBubbles cb = new ControllerBubbles(m);
 		ControllerScore cs = new ControllerScore(m);
+		ControllerClear cc = new ControllerClear(m);
 		ViewBubbles vb = (ViewBubbles) findViewById(R.id.ViewBubbles_Canvas);
 		vb.setMVC(m, cb);
 		ViewScore vs = (ViewScore) findViewById(R.id.ViewScores);
 		vs.setMVC(m, cs);
+		ViewClear vc = (ViewClear) findViewById(R.id.clear);
+		vc.setMVC(m, cc);
 	}
 	
 	// Call the startTicker()

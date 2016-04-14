@@ -8,10 +8,10 @@ public class ViewScore extends TextView implements IModelListener{
 
 	private Model model;
 	private ControllerScore controller;
-	
-	ViewScore(Context ct, AttributeSet at) {
+	public ViewScore(Context ct, AttributeSet at) {
 		super(ct, at);
 	}
+
 	
 	public void setMVC(Model m, ControllerScore c){
 		this.model = m;
