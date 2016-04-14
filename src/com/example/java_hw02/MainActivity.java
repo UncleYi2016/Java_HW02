@@ -1,3 +1,4 @@
+/***********************************MainActivity.java***********************************/
 package com.example.java_hw02;
 
 import android.app.Activity;
@@ -12,6 +13,7 @@ public class MainActivity extends Activity {
 		ControllerBubbles cb = new ControllerBubbles(m);
 		ControllerScore cs = new ControllerScore(m);
 		ControllerClear cc = new ControllerClear(m);
+//		Initialize the model and controllers.
 		ViewBubbles vb = (ViewBubbles) findViewById(R.id.ViewBubbles_Canvas);
 		vb.setMVC(m, cb);
 		ViewScore vs = (ViewScore) findViewById(R.id.ViewScores);

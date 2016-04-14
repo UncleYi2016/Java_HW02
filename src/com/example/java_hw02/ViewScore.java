@@ -1,3 +1,4 @@
+/***********************************ViewScore.java***********************************/
 package com.example.java_hw02;
 
 import android.content.Context;

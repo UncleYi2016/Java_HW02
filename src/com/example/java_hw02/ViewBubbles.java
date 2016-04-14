@@ -1,3 +1,4 @@
+/***********************************ViewBubbles.java***********************************/
 package com.example.java_hw02;
 
 import android.content.Context;
@@ -8,7 +9,6 @@ import android.os.Message;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
-import android.widget.Toast;
 
 public class ViewBubbles extends View implements IModelListener{
 
@@ -40,8 +40,8 @@ public class ViewBubbles extends View implements IModelListener{
 			public boolean onTouch(View v, MotionEvent e) {
 				controller.clickBubbles(e.getX(), e.getY());
 				if(e.getAction() == MotionEvent.ACTION_UP){
-					Toast.makeText(v.getContext(), "x: " + e.getX() + " y: " + e.getY(), Toast.LENGTH_SHORT).show();
-					controller.clickBubbles(e.getX(), e.getY());
+//					This part of code cannot run, the ACTION_UP event cannot be determined
+//					controller.clickBubbles(e.getX(), e.getY());
 				}
 			return false;
 			}
